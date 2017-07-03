@@ -17,7 +17,7 @@ trait DIContainerTrait
      * Get DI services and configured parameters
      * @return ContainerBuilder
      */
-    public function getContainer(): ContainerBuilder
+    public static function getContainer(): ContainerBuilder
     {
         // Initiate dependency Injection
         $container = new ContainerBuilder();

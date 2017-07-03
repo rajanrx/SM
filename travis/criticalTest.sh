@@ -11,5 +11,6 @@ set -ex
  ./bin/phpunit
 
 # Find issues using php smart analyser
-# Fixme: Known issue https://github.com/ovr/phpsa/issues/331
+# Fixme: update composer phpsa version once the known issue
+# https://github.com/ovr/phpsa/issues/331 is fixed
 ./bin/phpsa check src/

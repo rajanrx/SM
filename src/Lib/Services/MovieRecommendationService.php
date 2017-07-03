@@ -65,7 +65,7 @@ class MovieRecommendationService
      * Gets array of recommended movies using defined filters
      * @param string   $genre
      * @param DateTime $time
-     * @return \SM\Lib\Model\Interfaces\ModelInterface[]
+     * @return Movie[]
      */
     public function getRecommendedMovie(string $genre, DateTime $time): array
     {
