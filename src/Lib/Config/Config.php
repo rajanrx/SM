@@ -4,14 +4,23 @@ namespace SM\Lib\Config;
 
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * This class manages configured parameters
+ * Class Config
+ * @package SM\Lib\Config
+ */
 class Config
 {
     /** @var  array */
     protected static $config;
 
+    /**
+     * @return array|mixed
+     */
     protected static function getConfig()
     {
         if (self::$config === null) {
+            // Get all the configured parameters from YAML file
             return Yaml::parse(
                 file_get_contents(__DIR__ . '/../../../src/Config/Config.yml')
             );
@@ -20,6 +29,12 @@ class Config
         return self::$config;
     }
 
+    /**
+     * Returns specific config param if key path is defined
+     * Otherwise returns all defined configuration
+     * @param null $keyPath path in dotted notation
+     * @return mixed
+     */
     public static function get($keyPath = null)
     {
         $config = self::getConfig();
@@ -28,26 +43,36 @@ class Config
         }
 
         $pieces = explode('.', $keyPath);
+
         return self::getNestedVar($config, $pieces);
     }
 
-    protected static function getNestedVar(array $array, array $pieces)
+    /**
+     * Finds the value for key represented in dotted notation
+     * @param array $content
+     * @param array $pieces
+     * @return mixed
+     * @throws \Exception
+     * @SuppressWarnings
+     */
+    protected static function getNestedVar(array $content, array $pieces)
     {
-        if (!array_key_exists($pieces[0], $array)) {
+        if (!isset($pieces[0]) || !array_key_exists($pieces[0], $content)) {
             throw new \Exception(
                 'Param does not exists ' . implode('.', $pieces)
             );
         }
         $firstElement = $pieces[0];
-        while (sizeof($pieces) > 1) {
+        // Recursively get array elements until last key
+        while (count($pieces) > 1) {
             unset($pieces[0]);
 
             return self::getNestedVar(
-                $array[$firstElement],
+                $content[$firstElement],
                 array_values($pieces)
             );
         }
 
-        return $array[$firstElement];
+        return $content[$firstElement];
     }
 }

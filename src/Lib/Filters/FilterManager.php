@@ -6,6 +6,11 @@ namespace SM\Lib\Filters;
 use SM\Lib\Filters\Interfaces\FilterTypeInterface;
 use SM\Lib\Model\Interfaces\ModelInterface;
 
+/**
+ * Manages the filters and apply on Model Interface to filter them out
+ * Class FilterManager
+ * @package SM\Lib\Filters
+ */
 class FilterManager
 {
     /**
@@ -14,6 +19,7 @@ class FilterManager
     private $filters = [];
 
     /**
+     * Add filter
      * @param FilterTypeInterface $filter
      */
     public function addFilter(FilterTypeInterface $filter)
@@ -21,6 +27,10 @@ class FilterManager
         $this->filters[] = $filter;
     }
 
+    /**
+     * Add multiple filters
+     * @param array $filters
+     */
     public function addFilters(array $filters)
     {
         foreach ($filters as $filter) {
@@ -29,6 +39,7 @@ class FilterManager
     }
 
     /**
+     * Returns model interfaces that satisfied defined filters
      * @param array $models
      * @return ModelInterface[]
      */
@@ -36,6 +47,8 @@ class FilterManager
     {
         foreach ($models as $key => $model) {
             foreach ($this->filters as $filter) {
+                // If any of the filter has failed then no need to check the
+                // rest of them.
                 if ($filter->process($model) === false) {
                     unset($models[$key]);
                     break;
@@ -43,7 +56,7 @@ class FilterManager
             }
         }
 
-        // Reindex array
+        // Reindex array to update array keys
         return array_values($models);
     }
 }

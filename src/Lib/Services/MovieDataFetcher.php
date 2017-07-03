@@ -7,6 +7,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Kevinrob\GuzzleCache\CacheMiddleware;
 
+/**
+ * Class MovieDataFetcher
+ * @package SM\Lib\Services
+ */
 class MovieDataFetcher
 {
     /**
@@ -14,12 +18,17 @@ class MovieDataFetcher
      */
     private $movieUrl;
 
+    /**
+     * MovieDataFetcher constructor.
+     * @param string $movieUrl
+     */
     public function __construct(string $movieUrl)
     {
         $this->movieUrl = $movieUrl;
     }
 
     /**
+     * Returns JSON string of movies fetched from provided url
      * @return string
      * @throws \Exception
      */

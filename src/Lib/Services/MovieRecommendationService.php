@@ -10,6 +10,11 @@ use SM\Lib\Filters\Types\ShowingFilter;
 use SM\Lib\Model\ModelFactory;
 use SM\Models\Movie;
 
+/**
+ * Gets recommended movie using set of defined filters
+ * Class MovieRecommendationService
+ * @package SM\Lib\Services
+ */
 class MovieRecommendationService
 {
     /**
@@ -32,6 +37,12 @@ class MovieRecommendationService
      */
     protected $nextShowInSeconds;
 
+    /**
+     * MovieRecommendationService constructor.
+     * @param ModelFactory     $modelFactory
+     * @param FilterManager    $filterManager
+     * @param MovieDataFetcher $movieDataFetcher
+     */
     public function __construct(
         ModelFactory $modelFactory,
         FilterManager $filterManager,
@@ -50,6 +61,12 @@ class MovieRecommendationService
         $this->nextShowInSeconds = $nextShowInSeconds;
     }
 
+    /**
+     * Gets array of recommended movies using defined filters
+     * @param string   $genre
+     * @param DateTime $time
+     * @return \SM\Lib\Model\Interfaces\ModelInterface[]
+     */
     public function getRecommendedMovie(string $genre, DateTime $time)
     {
         $moviesJson = $this->movieDataFetcher->getMovieData();
@@ -57,7 +74,9 @@ class MovieRecommendationService
         $this->addFilters($genre, $time);
         $movies = $this->filterManager->applyFilter($movies);
 
-        if (sizeof($movies) > 1) {
+        // If the size of movies are greater than one then sort them based
+        // on their ratings
+        if (count($movies) > 1) {
             usort(
                 $movies,
                 function (Movie $a, Movie $b) {
@@ -69,13 +88,18 @@ class MovieRecommendationService
         return $movies;
     }
 
+    /**
+     * Add filters based on the provided params
+     * @param string   $genre
+     * @param DateTime $time
+     */
     protected function addFilters(string $genre, DateTime $time)
     {
         $this->filterManager->addFilters(
             [
                 (new GenreFilter())->applyRules(
                     [
-                        GenreFilter::FILTER_INPUT_GENRE => 'Comedy',
+                        GenreFilter::FILTER_INPUT_GENRE => $genre,
                     ]
                 ),
                 (new ShowingFilter())->applyRules(

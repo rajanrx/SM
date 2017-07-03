@@ -15,7 +15,7 @@
         "phpunit/phpunit": "^6.2",
         "squizlabs/php_codesniffer": "^3.0",
         "phpmd/phpmd": "^2.6",
-        "ovr/phpsa": "^0.6.2",
+        "ovr/phpsa": "dev-master#b3953ee58e688c01710942c2ea3173ec42956c0d",
         "phpunit/php-code-coverage": "^5.2"
     },
     "authors": [

@@ -11,5 +11,5 @@ set -ex
  ./bin/phpunit
 
 # Find issues using php smart analyser
+# Fixme: Known issue https://github.com/ovr/phpsa/issues/331
 ./bin/phpsa check src/
-./bin/phpsa check tests/
