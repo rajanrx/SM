@@ -2,7 +2,8 @@
 
 Simple project to show recommended movies 
 
-#usage
+# usage
+
 You need to have PHP 7.1 or above to run this project.
 
 Either clone this Repo 
