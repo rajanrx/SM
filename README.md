@@ -4,12 +4,21 @@
 Simple project to show recommended movies 
 
 #usage
-Install using composer 
+Either clone this Repo 
 ```
-composer require rajanrx/sm:^1.0.0
+git clone https://github.com/rajanrx/SM.git
+```
+and then run command 
+```
+php command.php --genre 'Comedy' --time '12:00'
+```
+
+OR Install using composer 
+```
+composer require rajan/sm:^1.0.0
 ```
 
 Then run using command line 
 ```
-php vendor\rajanrx\sm\command.php --genre 'Comedy' --time '12:00'
+php vendor\rajan\sm\command.php --genre 'Comedy' --time '12:00'
 ```
