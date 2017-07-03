@@ -11,5 +11,5 @@ composer require rajanrx/sm:^1.0.0
 
 Then run using command line 
 ```
-php command.php --genre 'Comedy' --time '12:00'
+php vendor\rajanrx\sm\command.php --genre 'Comedy' --time '12:00'
 ```
