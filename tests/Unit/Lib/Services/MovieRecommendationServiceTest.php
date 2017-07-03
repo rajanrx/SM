@@ -1,6 +1,7 @@
 <?php
 namespace SM\Unit\Lib\Services;
 
+use DateTimeZone;
 use PHPUnit\Framework\TestCase;
 use SM\Lib\Services\MovieDataFetcher;
 use SM\Lib\Services\MovieRecommendationService;
@@ -51,7 +52,8 @@ class MovieRecommendationServiceTest extends TestCase
             'Comedy',
             date_create_from_format(
                 'H:i:sT',
-                '18:29:00+11:00'
+                '18:29:00+11:00',
+                new DateTimeZone('+11:00')
             )
         );
         $this->assertEquals(2, sizeof($movies));

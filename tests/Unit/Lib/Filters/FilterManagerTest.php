@@ -1,33 +1,13 @@
 <?php
+
 namespace SM\Unit\Lib\Filters;
 
-use PHPUnit\Framework\TestCase;
 use SM\Lib\Filters\FilterManager;
-use SM\Models\Movie;
-use SM\Traits\DIContainerTrait;
+use SM\Lib\Filters\Types\ShowingFilter;
+use SM\Unit\Lib\Filters\Types\FilterTestHelper;
 
-class FilterManagerTest extends TestCase
+class FilterManagerTest extends FilterTestHelper
 {
-    use DIContainerTrait;
-
-    /**
-     * @var FilterManager
-     */
-    protected $service;
-
-    /**
-     * @var Movie[]
-     */
-    protected $movies;
-
-    public function setUp()
-    {
-        parent::setUp();
-        $container = $this->getContainer();
-        $this->service = $container->get('sm.lib.filters.filter_manager');
-        $this->setMovies();
-    }
-
     public function testFilterManagerServiceIsLoaded()
     {
         $this->assertInstanceOf(
@@ -38,52 +18,25 @@ class FilterManagerTest extends TestCase
 
     public function testFillWillReturnAllModelsIfNoFiltersAreApplied()
     {
+        $container = $this->getContainer();
+        $this->service = $container->get('sm.lib.filters.filter_manager');
         $movies = $this->service->applyFilter($this->movies);
         $this->assertEquals(2, sizeof($movies));
     }
 
-    protected function setMovies()
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage invalidRule does not exists for
+     *     SM\Lib\Filters\Types\ShowingFilter
+     */
+    public function testInvalidFilterConfigurationWillThrowException()
     {
-        $this->movies = [
-            $this->getMovie(
+        $this->service->addFilter(
+            (new ShowingFilter())->applyRules(
                 [
-                    'name'     => 'Movie 1',
-                    'rating'   => 90,
-                    'genres'   => [
-                        'G1',
-                        'G2',
-                    ],
-                    'showings' => [
-                        '18:00:00+11:00',
-                    ],
+                    'invalidRule' => [],
                 ]
-            ),
-            $this->getMovie(
-                [
-                    'name'     => 'Movie 2',
-                    'rating'   => 95,
-                    'genres'   => [
-                        'G1',
-                        'G3',
-                    ],
-                    'showings' => [
-                        '18:30:00+11:00',
-                        '20:30:00+11:00',
-                    ],
-                ]
-            ),
-        ];
-    }
-
-    protected function getMovie(array $params)
-    {
-        $movie = new Movie();
-        foreach ($params as $key => $value) {
-            if (property_exists($movie, $key)) {
-                $movie->$key = $value;
-            }
-        }
-
-        return $movie;
+            )
+        );
     }
 }

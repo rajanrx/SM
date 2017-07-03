@@ -4,6 +4,7 @@
 namespace SM\Lib\Filters\Types;
 
 use DateTime;
+use DateTimeZone;
 use SM\Lib\Filters\Interfaces\FilterTypeInterface;
 use SM\Lib\Filters\MovieFilter;
 use SM\Lib\Model\Interfaces\ModelInterface;
@@ -80,7 +81,7 @@ class ShowingFilter extends MovieFilter implements FilterTypeInterface
 
         if ($model instanceof Movie && count($model->showings)) {
             foreach ($model->showings as $showing) {
-                $date = date_create_from_format('H:i:sP', $showing);
+                $date = date_create_from_format('H:i:sP', $showing, new DateTimeZone('+11:00'));
                 $diffInSeconds =
                     $date->getTimestamp() - $inputTime->getTimestamp();
                 if ($diffInSeconds >= $nextShowInSeconds) {

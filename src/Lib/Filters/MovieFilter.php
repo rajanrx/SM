@@ -46,7 +46,7 @@ abstract class MovieFilter implements FilterTypeInterface
     {
         if (!$model instanceof Movie) {
             throw new \Exception(
-                'Genre filter can only be applied for Movie.'
+                get_class($this).' filter can only be applied for Movie.'
             );
         }
     }

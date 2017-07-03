@@ -52,4 +52,28 @@ class ModelFactoryTest extends TestCase
             ($movies[0])->showings
         );
     }
+
+    public function testCanLoadModel()
+    {
+        $sampleData = [
+            'name' => 'foo',
+            'rating' => 20,
+            'showings' => [
+                '18:30:00+11:00'
+            ],
+            'genres' => [
+                'lol'
+            ]
+        ];
+
+        /** @var Movie $movie */
+        $movie = $this->service->fromJSON(
+            json_encode($sampleData),
+            new Movie()
+        );
+
+        $this->assertNotNull($movie);
+        $this->assertInstanceOf(Movie::class, $movie);
+        $this->assertEquals('foo', $movie->name);
+    }
 }

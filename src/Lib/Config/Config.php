@@ -59,7 +59,7 @@ class Config
     {
         if (!isset($pieces[0]) || !array_key_exists($pieces[0], $content)) {
             throw new \Exception(
-                'Param does not exists ' . implode('.', $pieces)
+                'Param does not exists '
             );
         }
         $firstElement = $pieces[0];

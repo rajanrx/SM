@@ -17,10 +17,17 @@ php command.php --genre 'Comedy' --time '12:00'
 
 OR Install using composer 
 ```
-composer require rajan/sm:^1.0.0
+composer require rajan/sm:^1.0.1
 ```
 
 Then run using command line 
 ```
 php vendor/rajan/sm/command.php --genre 'Comedy' --time '12:00'
+```
+
+# Test Coverage [~99%] 
+
+To generate the report run and you can access coverage html
+```
+./bin/phpunit --coverage-html ./report
 ```

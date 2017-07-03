@@ -1,6 +1,7 @@
 <?php
 require_once 'vendor/autoload.php';
 use Doctrine\Common\Annotations\AnnotationRegistry;
+use SM\Lib\Model\MovieHelper;
 use SM\Lib\Services\MovieRecommendationService;
 use SM\Traits\DIContainerTrait;
 
@@ -48,7 +49,11 @@ if (count($movies) == 0) {
 }
 
 foreach ($movies as $movie) {
-    $showTime = $movie->getNearestShowingDate($movieCommand['time'], 'h:i a');
+    $showTime = MovieHelper::getNearestShowingDate(
+        $movie,
+        $movieCommand['time'],
+        'h:i a'
+    );
     echo "{$movie->name}, showing at {$showTime} " . PHP_EOL;
 }
 
