@@ -1,6 +1,5 @@
 <?php
 
-
 use PHPUnit\Framework\TestCase;
 use SM\Lib\Model\ModelFactory;
 use SM\Models\Movie;

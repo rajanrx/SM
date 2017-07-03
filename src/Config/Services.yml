@@ -11,3 +11,6 @@ services:
 
   sm.lib.model_factory:
     class: SM\Lib\Model\ModelFactory
+
+  sm.lib.filters.filter_manager:
+      class: SM\Lib\Filters\FilterManager
