@@ -16,7 +16,7 @@ class ShowingFilterTest extends FilterManagerTest
                             60,
                         ShowingFilter::PARAM_INPUT_TIME           => date_create_from_format(
                             'H:i:sT',
-                            '17:00:00+11:00'
+                            '19:00:00+11:00'
                         ),
                     ],
                 ]
@@ -24,7 +24,7 @@ class ShowingFilterTest extends FilterManagerTest
         );
         $movies = $this->service->applyFilter($this->movies);
 
-        $this->assertEquals(2, sizeof($movies));
-        $this->assertEquals('Movie 1', $movies[0]->name);
+        $this->assertEquals(1, sizeof($movies));
+        $this->assertEquals('Movie 2', $movies[0]->name);
     }
 }
