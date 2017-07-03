@@ -31,6 +31,7 @@ class MovieDataFetcher
      * Returns JSON string of movies fetched from provided url
      * @return string
      * @throws \Exception
+     * @codeCoverageIgnore
      */
     public function getMovieData(): string
     {
