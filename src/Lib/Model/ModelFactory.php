@@ -13,8 +13,10 @@ class ModelFactory implements FactoryInterface
      * @param ModelInterface $modelInstance
      * @return ModelInterface
      */
-    public function fromJSON(string $json, ModelInterface $modelInstance)
-    {
+    public function fromJSON(
+        string $json,
+        ModelInterface $modelInstance
+    ): ModelInterface {
         $type = get_class($modelInstance);
 
         return $this->deserializeModel($json, $type);
@@ -28,15 +30,15 @@ class ModelFactory implements FactoryInterface
     public function arrayFromJSON(
         string $json,
         ModelInterface $modelInstance
-    ) {
+    ): array {
         $type = 'array<' . get_class($modelInstance) . '>';
 
         return $this->deserializeModel($json, $type);
     }
 
     /**
-     * @param string         $json
-     * @param string         $type
+     * @param string $json
+     * @param string $type
      * @return ModelInterface | ModelInterface[]
      */
     protected function deserializeModel(

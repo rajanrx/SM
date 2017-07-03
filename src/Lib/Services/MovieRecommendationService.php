@@ -67,7 +67,7 @@ class MovieRecommendationService
      * @param DateTime $time
      * @return \SM\Lib\Model\Interfaces\ModelInterface[]
      */
-    public function getRecommendedMovie(string $genre, DateTime $time)
+    public function getRecommendedMovie(string $genre, DateTime $time): array
     {
         $moviesJson = $this->movieDataFetcher->getMovieData();
         $movies = $this->modelFactory->arrayFromJSON($moviesJson, new Movie());

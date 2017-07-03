@@ -15,9 +15,9 @@ class Config
     protected static $config;
 
     /**
-     * @return array|mixed
+     * @return array
      */
-    protected static function getConfig()
+    protected static function getConfig(): array
     {
         if (self::$config === null) {
             // Get all the configured parameters from YAML file

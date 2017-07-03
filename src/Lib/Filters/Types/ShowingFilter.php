@@ -59,7 +59,7 @@ class ShowingFilter extends MovieFilter implements FilterTypeInterface
     protected function isMovieInNextTimeAhead(
         ModelInterface $model,
         array $params
-    ) {
+    ): bool {
 
         // Check if the provided params are correct
         if (!array_key_exists(self::PARAM_NEXT_SHOW_IN_SECONDS, $params) ||

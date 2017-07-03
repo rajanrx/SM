@@ -32,7 +32,7 @@ class MovieDataFetcher
      * @return string
      * @throws \Exception
      */
-    public function getMovieData()
+    public function getMovieData(): string
     {
 
         if (empty($this->movieUrl)) {

@@ -47,7 +47,7 @@ class GenreFilter extends MovieFilter implements FilterTypeInterface
     protected function checkGenreExistsInMovie(
         ModelInterface $model,
         string $genre
-    ) {
+    ): bool {
         if ($model instanceof Movie && in_array($genre, $model->genres)) {
             return true;
         }

@@ -43,7 +43,7 @@ class FilterManager
      * @param array $models
      * @return ModelInterface[]
      */
-    public function applyFilter(array $models)
+    public function applyFilter(array $models) : array
     {
         foreach ($models as $key => $model) {
             foreach ($this->filters as $filter) {
