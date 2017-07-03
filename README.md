@@ -4,6 +4,8 @@
 Simple project to show recommended movies 
 
 #usage
+You need to have PHP 7.1 or above to run this project.
+
 Either clone this Repo 
 ```
 git clone https://github.com/rajanrx/SM.git
