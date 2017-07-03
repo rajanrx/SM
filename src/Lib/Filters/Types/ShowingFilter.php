@@ -52,7 +52,7 @@ class ShowingFilter extends MovieFilter implements FilterTypeInterface
 
         if ($model instanceof Movie && sizeof($model->showings)) {
             foreach ($model->showings as $showing) {
-                $date = date_create_from_format('H:i:sT', $showing);
+                $date = date_create_from_format('H:i:sP', $showing);
                 $diffInSeconds =
                     $date->getTimestamp() - $inputTime->getTimestamp();
                 if ($diffInSeconds >= $nextShowInSeconds) {

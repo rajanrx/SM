@@ -14,3 +14,17 @@ services:
 
   sm.lib.filters.filter_manager:
       class: SM\Lib\Filters\FilterManager
+
+  sm.lib.services.movie_data_fetcher:
+    class: SM\Lib\Services\MovieDataFetcher
+    arguments:
+      - '@config.params.movie.url'
+
+  sm.lib.services.movie_recommendation_service:
+    class: SM\Lib\Services\MovieRecommendationService
+    arguments:
+      - '@sm.lib.model_factory'
+      - '@sm.lib.filters.filter_manager'
+      - '@sm.lib.services.movie_data_fetcher'
+    calls:
+      - [setNextShowInSeconds, ['@config.param.movie.filters.next_show_in_seconds']]

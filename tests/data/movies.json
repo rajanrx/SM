@@ -11,6 +11,17 @@
     ]
   },
   {
+    "name": "Shaun The Sheep",
+    "rating": 80,
+    "genres": [
+      "Animation",
+      "Comedy"
+    ],
+    "showings": [
+      "19:00:00+11:00"
+    ]
+  },
+  {
     "name": "Zootopia",
     "rating": 92,
     "genres": [
@@ -32,17 +43,6 @@
     "showings": [
       "17:30:00+11:00",
       "19:30:00+11:00"
-    ]
-  },
-  {
-    "name": "Shaun The Sheep",
-    "rating": 80,
-    "genres": [
-      "Animation",
-      "Comedy"
-    ],
-    "showings": [
-      "19:00:00+11:00"
     ]
   }
 ]
