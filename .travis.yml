@@ -16,4 +16,4 @@ before_install:
   - composer install
 
 script:
-  - ./travis/phpsa.sh
+  - ./travis/criticalTest.sh
