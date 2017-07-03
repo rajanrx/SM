@@ -1,0 +1,13 @@
+services:
+  config.params.movie.url:
+    class: string
+    factory: [SM\Lib\Config\Config, get]
+    arguments: [params.movie.url]
+
+  config.param.movie.filters.next_show_in_seconds:
+    class: integer
+    factory: [SM\Lib\Config\Config, get]
+    arguments: [params.movie.filters.next_show_in_seconds]
+
+  sm.lib.model_factory:
+    class: SM\Lib\Model\ModelFactory

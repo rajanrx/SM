@@ -1,0 +1,5 @@
+params:
+  movie:
+    url: https://pastebin.com/raw/cVyp3McN
+    filters:
+      next_show_in_seconds: 1800
