@@ -3,7 +3,6 @@
 
 namespace SM\Lib\Services;
 
-
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Kevinrob\GuzzleCache\CacheMiddleware;
@@ -15,7 +14,7 @@ class MovieDataFetcher
      */
     private $movieUrl;
 
-    function __construct(string $movieUrl)
+    public function __construct(string $movieUrl)
     {
         $this->movieUrl = $movieUrl;
     }

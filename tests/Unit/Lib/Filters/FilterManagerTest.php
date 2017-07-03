@@ -1,13 +1,14 @@
 <?php
-
+namespace SM\Unit\Lib\Filters;
 
 use PHPUnit\Framework\TestCase;
 use SM\Lib\Filters\FilterManager;
 use SM\Models\Movie;
+use SM\Traits\DIContainerTrait;
 
 class FilterManagerTest extends TestCase
 {
-    use \SM\Traits\DIContainerTrait;
+    use DIContainerTrait;
 
     /**
      * @var FilterManager
@@ -85,5 +86,4 @@ class FilterManagerTest extends TestCase
 
         return $movie;
     }
-
 }

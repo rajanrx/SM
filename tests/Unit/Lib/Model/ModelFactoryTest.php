@@ -1,5 +1,7 @@
 <?php
 
+namespace SM\Unit\Lib\Model;
+
 use PHPUnit\Framework\TestCase;
 use SM\Lib\Model\ModelFactory;
 use SM\Models\Movie;

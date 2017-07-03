@@ -3,7 +3,6 @@
 
 namespace SM\Lib\Filters\Types;
 
-
 use DateTime;
 use SM\Lib\Filters\Interfaces\FilterTypeInterface;
 use SM\Lib\Filters\MovieFilter;

@@ -32,7 +32,7 @@ class MovieRecommendationService
      */
     protected $nextShowInSeconds;
 
-    function __construct(
+    public function __construct(
         ModelFactory $modelFactory,
         FilterManager $filterManager,
         MovieDataFetcher $movieDataFetcher

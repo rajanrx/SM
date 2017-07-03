@@ -3,7 +3,6 @@
 
 namespace SM\Lib\Filters;
 
-
 use SM\Lib\Filters\Interfaces\FilterTypeInterface;
 use SM\Lib\Model\Interfaces\ModelInterface;
 
@@ -47,5 +46,4 @@ class FilterManager
         // Reindex array
         return array_values($models);
     }
-
 }

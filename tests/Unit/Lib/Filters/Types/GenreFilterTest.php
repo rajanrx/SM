@@ -1,6 +1,8 @@
 <?php
+namespace SM\Unit\Lib\Filters\Types;
 
 use SM\Lib\Filters\Types\GenreFilter;
+use SM\Unit\Lib\Filters\FilterManagerTest;
 
 class GenreFilterTest extends FilterManagerTest
 {
@@ -16,6 +18,6 @@ class GenreFilterTest extends FilterManagerTest
         $movies = $this->service->applyFilter($this->movies);
 
         $this->assertEquals(1, sizeof($movies));
-        $this->assertEquals('Movie 1',$movies[0]->name);
+        $this->assertEquals('Movie 1', $movies[0]->name);
     }
 }

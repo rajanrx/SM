@@ -1,10 +1,12 @@
 <?php
+namespace SM\Unit\Lib\Services;
 
+use PHPUnit\Framework\TestCase;
 use SM\Lib\Services\MovieDataFetcher;
 use SM\Lib\Services\MovieRecommendationService;
 use SM\Traits\DIContainerTrait;
 
-class MovieRecommendationServiceTest extends \PHPUnit\Framework\TestCase
+class MovieRecommendationServiceTest extends TestCase
 {
     use DIContainerTrait;
 
