@@ -21,9 +21,10 @@ class Config
     {
         if (self::$config === null) {
             // Get all the configured parameters from YAML file
-            return Yaml::parse(
+            self::$config = Yaml::parse(
                 file_get_contents(__DIR__ . '/../../../src/Config/Config.yml')
             );
+            return self::$config;
         }
 
         return self::$config;
