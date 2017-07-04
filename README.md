@@ -6,7 +6,7 @@ Simple project to show recommended movies
 
 You need to have PHP 7.1 or above to run this project.
 
-Either clone this Repo 
+Either clone this Repo , install dependencies
 ```
 git clone https://github.com/rajanrx/SM.git && composer install
 ```
@@ -27,7 +27,7 @@ php vendor/rajan/sm/command.php --genre 'Comedy' --time '12:00'
 
 # Test Coverage  
 
-To generate the report run and you can access coverage html
+To generate the report run the following command and you can access coverage html
 ```
 ./bin/phpunit --coverage-html ./report
 ```
