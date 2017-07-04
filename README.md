@@ -25,9 +25,10 @@ Then run using command line
 php vendor/rajan/sm/command.php --genre 'Comedy' --time '12:00'
 ```
 
-# Test Coverage [~99%] 
+# Test Coverage  
 
 To generate the report run and you can access coverage html
 ```
 ./bin/phpunit --coverage-html ./report
 ```
+![Test Coverage](https://github.com/rajanrx/SM/blob/master/Report/test-coverage.png)
